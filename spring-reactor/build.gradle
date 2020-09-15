@@ -1,0 +1,31 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'io.projectreactor:reactor-core:3.3.5.RELEASE'
+
+    implementation 'io.projectreactor.addons:reactor-extra:3.3.3.RELEASE'
+
+    testImplementation 'io.projectreactor:reactor-test:3.3.5.RELEASE'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+
+    // Use JUnit Jupiter Engine for testing.
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+}
+
+application {
+    mainClassName = 'com.apress.spring_quick.reactor.App'
+}
+
+test {
+    // Use junit platform for unit tests
+    useJUnitPlatform()
+}

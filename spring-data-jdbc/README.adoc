@@ -1,0 +1,36 @@
+== Spring Data JDBC basics
+
+=== SimpleEntityTests
+
+This example demonstrate basic usage of JDBC based repositories.
+
+* The `SimpleEntityTests` demonstrate CRUD operations for an entity without references, just simple properties of various types.
+
+* The `CategoryContext` shows how to configure an application context so that Spring Data JDBC can create repositories.
+
+* The `ApplicationListener` registered in `CategoryContext` demonstrate how to react to events published by Spring Data JDBC and how entities can get manipulated in such event listeners.
+
+=== AdvancedTests
+
+This example demonstrates various ways to bend what the standard mapping of Spring Data JDBC can do.
+
+* `AdvancedConfiguration.idSetting()` registers an `ApplicationListener` to implement a custom id generation strategy for `Channel` and `Message`.
+
+* `AdvancedConfiguration.namingStrategy()` registers a custom `NamingStrategy` in order to map property and class names to database columns and tables.
+
+* The `minimumAge` and `maximumAge` properties show a way to use types which don't have direct mapping to a SQL type, by marking them with `@Transient` and having converted properties for Spring Data JDBC to use.
+
+* The `topics` attribute demonstrate mapping of a `Map<simple type, entity>`. It does work out of the box, but in this case the key of the map should be one attribute of the entity.
+This is achieved by providing a custom `NamingStrategy` which maps both to the same database column.
+
+* When the database returns a data type for a query which Spring Data JDBC doesn't map, a custom conversion can be registered using a `ConversionCustomizer`
+as demonstrated in `AdvancedConfiguration.conversionCustomizer()`.
+
+* `ChannelRepository` has methods that utilize `@Query` annotations.
+
+* Note that `Topic` is an immutable class, and doesn't have an ID.
+
+=== InsertOnlyImpl
+
+Demonstrates how to invoke the `insert` method on JdbcAggregateTemplate.
+CategoryRepository adds this method by implementing the InsertOnly interface.

@@ -1,0 +1,11 @@
+
+html { margin: 0; padding: 0; }
+body { font-size: 16px; background: white }
+h1, h2, h3 { color: #333 }
+h1 { font-size: 200% }
+h2 { font-size: 150% }
+h3 { font-size: 130% }
+p { padding: 1em; }
+p div { padding: 2em; }
+p:hover { background: #eee; transition: all 1s }
+.error { background: salmon }

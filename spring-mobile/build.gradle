@@ -1,0 +1,45 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id "java"
+}
+group = 'com.apress.spring-quick'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+ext {
+    mobileVersion = '1.1.5.RELEASE'
+    springBootVersion = '2.3.0.RELEASE'
+    // Backend using JPA (use `./mvnw install` on it to install it)
+    springQuickJpaVersion = '0.0.1'
+    // database
+    h2Version = '1.4.192'
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-actuator:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-groovy-templates:$springBootVersion"
+    implementation "org.springframework.mobile:spring-mobile-device:$mobileVersion"
+    implementation "com.apress.spring-quick:spring-data-jpa:$springQuickJpaVersion"
+    implementation "com.zaxxer:HikariCP" // fast connection pool
+    implementation "com.h2database:h2:$h2Version" // database
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion") {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+    exclude '**/*TestBase*'
+}
+wrapper {
+    gradleVersion = '6.3'
+}
+
+task("run").dependsOn = ['bootRun']

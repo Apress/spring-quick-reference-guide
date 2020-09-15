@@ -1,0 +1,12 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false

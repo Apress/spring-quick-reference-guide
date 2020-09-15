@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cafe-dsl" />
+        <module name="spring-data-jpa-example" />
+        <module name="kafka-dsl" />
+        <module name="demo" />
+        <module name="spring-data-jdbc-basics" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="batch-processing" options="-parameters" />
+      <module name="cafe-dsl" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="kafka-dsl" options="-parameters" />
+      <module name="spring-data-jdbc-basics" options="-parameters" />
+      <module name="spring-data-jpa-example" options="-parameters" />
+    </option>
+  </component>
+</project>

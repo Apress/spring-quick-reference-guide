@@ -1,0 +1,25 @@
+# Application name
+spring:
+  application:
+    name: SERVICE1
+# Discovery Server Access
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:3000/eureka/}
+
+---
+spring:
+  cloud:
+    stream:
+      bindings:
+        source1-out-0:
+          destination: test1
+        source2-out-0:
+          destination: test2
+        sink-in-0:
+          destination: test1
+      function:
+        definition: source1;source2;sink

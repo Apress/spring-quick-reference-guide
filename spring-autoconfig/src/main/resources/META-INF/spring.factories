@@ -1,0 +1,3 @@
+# registering the class as an auto-configuration candidate
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.apress.spring_quick.autoconfig.AutoConfig
